@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+        <!--================Blog Area =================-->
+        <section class="blog_area p_120 single-post-area">
+            <h2>새 글 작성하기</h2>
+            {% load widget_tweaks %}
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label for="{{field.id_for_label}}">{{field.label}}</label>
+                    {{field|add_class:'form-control'}}
+                    {% for error in field.errors %}
+                    <span class="help-block">{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <input type="submit" value="작성완료">
+            </form>
+            <div class="clear"></div>
+        </section>
+{% endblock %}
