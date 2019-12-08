@@ -17,7 +17,7 @@ class Post(models.Model):
     createDate = models.DateTimeField(auto_now_add=True)
     updateDate = models.DateTimeField(auto_now_add=True)
     #하나의 글이 여러가지 분류에 해당될 수 있다. (ex. 입양, 정보, 커뮤니티) 하나의 카테고리에 여러가지 글이 포함될 수 있다(정보 카테고리에 글 10개)
-    category = models.ManyToManyField(Category, help_text = "글의 카테고리를 설정하세요.")
+    category = models.ManyToManyField(Category, help_text="글의 분류를 설정하세요.")
 
     def __str__(self):
         return self.title
